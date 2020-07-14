@@ -34,30 +34,25 @@ stringified = stringified.replace(/{var3}/g, var3);
 stringified = stringified.replace(/{var4}/g, var4);
 stringified = stringified.replace(/{var5}/g, var5);
 stringified = stringified.replace(/{var6}/g, var6);
-stringified = stringified.replace("speach", speech);
+stringified = stringified.replace("{speach}", speech);
 
 
 
 
-let text = JSON.parse(stringified);
-
-// const $text = $(text);
+let JSONtext = JSON.parse(stringified);
 
 
-  console.log($text);
 
+let textForView = JSONtext.text[ 0 ] + "<br>";
 
-// text.foreach(element => console.log(element));
+	    for (let i=1; i < JSONtext.text.length; i++) {
+	    console.log(JSONtext.text[ i ]);
+	    textForView = textForView + JSONtext.text[ i ] + "<br>";
+	    }
 
-// console.log(text.get(3));
-// let textForView=`<div class="text">`;
-//     for (let i=0; i < text.length; i++) {
-//     textForView = `${textForView} + ${text.[ i ]}`;
-//     }
-//     textForView = textForView + `</div>`;
-  // надо сделать так чтобы сообщения подменились на значения из формы
- // let text = "Здесь могла быть ваша реклама";
-	// $("#result").text(textForView);
+	    console.log(textForView);
+
+	$("#result").html(textForView);
 }
 
 
